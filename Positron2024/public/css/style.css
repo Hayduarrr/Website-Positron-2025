@@ -1,0 +1,588 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap");
+
+@import url("<https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Luckiest+Guy:wght@300;600&display=swap");
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Luckiest Guy", sans-serif;
+}
+
+
+section .filosofi {
+    background-image: radial-gradient(
+            circle at 20% 100%,
+            rgba(15, 19, 144, 0.45) 0%,
+            rgba(15, 19, 144, 0.45) 33%,
+            rgba(10, 12, 120, 0.35) 33%,
+            rgba(10, 12, 120, 0.35) 66%,
+            rgba(5, 8, 60, 0.25) 66%,
+            rgba(5, 8, 60, 0.25) 99%
+        ),
+        linear-gradient(40deg, rgba(15, 19, 144, 0.45), rgba(10, 12, 120, 0.35), rgba(5, 8, 60, 0.25), rgba(25, 30, 200, 0.15));
+
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section .filsof {
+    display: grid;
+    grid-template-columns: 50% 45%;
+    place-items: center;
+    gap: 60px;
+    min-height: 100vh;
+    padding: 20px 60px;
+}
+
+/* CONTENT */
+
+.content {
+    max-width: 2400px;
+}
+
+.content h1 {
+    font-family: "Comfortaa", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin-bottom: 36px;
+    color: #fff;
+}
+
+.content p {
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.content button {
+    background: #eaeaea;
+    color: #202134;
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    font-weight: 600;
+    border: 0;
+    outline: 0;
+    padding: 8px 14px;
+    border-radius: 7px;
+    transform: scale(1);
+    transition: all 0.4s ease-in;
+    cursor: pointer;
+}
+
+.content button:is(:hover, :focus) {
+    transform: scale(0.98);
+    background-color: #6f7aa6;
+    color: #eaeaea;
+}
+
+/* SLIDER */
+
+.swiper {
+    position: relative;
+    width: 400px;
+    height: 490px;
+}
+
+.swiper-slide {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    user-select: none;
+    border-radius: 20px;
+}
+
+.cost {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    padding: 6px 10px;
+    color: #fff;
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+    font-weight: 600;
+}
+
+.dark-text {
+    color: #202134;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    padding: 10px 20px;
+    background: rgba(93, 95, 145, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.overlay h1 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-weight: 600;
+}
+
+.overlay p {
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+.ratings {
+    display: flex;
+    column-gap: 10px;
+    margin-top: -6px;
+}
+
+.ratings span {
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+    font-weight: 300;
+}
+
+.star {
+    color: #afe312;
+}
+
+@media (max-width: 1050px) {
+    .swiper {
+        width: 350px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 930px) {
+    section .filsof {
+        grid-template-columns: 100%;
+        grid-template-rows: 55% 40%;
+        grid-template-areas:
+            "content"
+            "slider";
+        place-items: center;
+        gap: 64px;
+        padding: 60px;
+    }
+
+    .swiper {
+        grid-area: slider;
+    }
+
+    .content {
+        grid-area: content;
+        text-align: center;
+    }
+
+    .content h1 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 470px) {
+    section .filsof {
+        padding: 40px 40px 60px;
+    }
+
+    .swiper {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+/* animasi logo filosofi */
+.logo-img {
+    height: 250px;
+    weight: 300px;
+}
+
+.logo-img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+/* animasi image logo guide */
+.img-guide {
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-guide:hover {
+    transform: scale(1.1);
+}
+
+
+
+.hero-section {
+    margin-bottom: 60px; /* Jarak khusus untuk hero-section */
+}
+
+.featured-section {
+    margin-bottom: 200px; /* Jarak khusus untuk featured-section */
+}
+
+.book-section {
+    margin: bottom 0;
+}
+
+.manual-book-section {
+    margin-top: 0px;
+    margin-bottom: 190px;
+    /* Jarak khusus untuk manual-book-section */
+}
+
+.section-padding {
+    padding-top: 40px; /* Padding khusus jika diperlukan */
+    padding-bottom: 40px; /* Padding khusus jika diperlukan */
+}
+
+/* grup */
+#kelompok {
+    padding-top: 100px;
+}
+
+body {
+    background-image: url("../images/A.png"); /* Ganti dengan path gambar Anda */
+    background-size: cover; /* Menutupi seluruh area section */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+    padding: 0px 0; /* Tambahkan padding sesuai kebutuhan */
+    min-height: 1080px;
+}
+
+@media (max-width: 768px) {
+    .manual-book-section {
+        background-position: top center; /* Ubah posisi jika perlu pada layar kecil */
+    }
+}
+
+/*video slider */
+.csslider {
+    -moz-perspective: 1300px;
+    -ms-perspective: 1300px;
+    -webkit-perspective: 1300px;
+    perspective: 1300px;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    margin-bottom: 22px;
+}
+.csslider > input {
+    display: none;
+}
+.csslider > input:nth-of-type(10):checked ~ ul li:first-of-type {
+    margin-left: -900%;
+}
+.csslider > input:nth-of-type(9):checked ~ ul li:first-of-type {
+    margin-left: -800%;
+}
+.csslider > input:nth-of-type(8):checked ~ ul li:first-of-type {
+    margin-left: -700%;
+}
+.csslider > input:nth-of-type(7):checked ~ ul li:first-of-type {
+    margin-left: -600%;
+}
+.csslider > input:nth-of-type(6):checked ~ ul li:first-of-type {
+    margin-left: -500%;
+}
+.csslider > input:nth-of-type(5):checked ~ ul li:first-of-type {
+    margin-left: -400%;
+}
+.csslider > input:nth-of-type(4):checked ~ ul li:first-of-type {
+    margin-left: -300%;
+}
+.csslider > input:nth-of-type(3):checked ~ ul li:first-of-type {
+    margin-left: -200%;
+}
+.csslider > input:nth-of-type(2):checked ~ ul li:first-of-type {
+    margin-left: -100%;
+}
+.csslider > input:nth-of-type(1):checked ~ ul li:first-of-type {
+    margin-left: 0%;
+}
+.csslider > ul {
+    position: relative;
+    width: 820px;
+    height: 420px;
+    z-index: 1;
+    font-size: 0;
+    line-height: 0;
+    border: 10px solid #ffffff;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.csslider > ul > li {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 15px;
+    font-size: initial;
+    line-height: normal;
+    -moz-transition: all 0.5s cubic-bezier(0.4, 1.3, 0.65, 1);
+    -o-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 1.3, 0.65, 1);
+    transition: all 0.5s cubic-bezier(0.4, 1.3, 0.65, 1);
+    vertical-align: top;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: normal;
+}
+.csslider > .navigation {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    z-index: 10;
+    margin-bottom: -10px;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.csslider > .navigation > div {
+    margin-left: -100%;
+}
+.csslider > .navigation label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 4px;
+    padding: 4px;
+    background: #3a3a3a;
+}
+.csslider > .navigation label:hover:after {
+    opacity: 1;
+}
+.csslider > .navigation label:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -6px;
+    margin-top: -6px;
+    background: #ff0000;
+    border-radius: 50%;
+    padding: 6px;
+    opacity: 0;
+}
+.csslider > .arrows {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.csslider.inside .navigation {
+    bottom: 10px;
+    margin-bottom: 10px;
+}
+.csslider
+    > input:nth-of-type(1):checked
+    ~ .navigation
+    label:nth-of-type(1):after,
+.csslider
+    > input:nth-of-type(2):checked
+    ~ .navigation
+    label:nth-of-type(2):after,
+.csslider
+    > input:nth-of-type(3):checked
+    ~ .navigation
+    label:nth-of-type(3):after,
+.csslider
+    > input:nth-of-type(4):checked
+    ~ .navigation
+    label:nth-of-type(4):after,
+.csslider
+    > input:nth-of-type(5):checked
+    ~ .navigation
+    label:nth-of-type(5):after,
+.csslider
+    > input:nth-of-type(6):checked
+    ~ .navigation
+    label:nth-of-type(6):after,
+.csslider
+    > input:nth-of-type(7):checked
+    ~ .navigation
+    label:nth-of-type(7):after,
+.csslider
+    > input:nth-of-type(8):checked
+    ~ .navigation
+    label:nth-of-type(8):after,
+.csslider
+    > input:nth-of-type(9):checked
+    ~ .navigation
+    label:nth-of-type(9):after,
+.csslider
+    > input:nth-of-type(10):checked
+    ~ .navigation
+    label:nth-of-type(10):after,
+.csslider
+    > input:nth-of-type(11):checked
+    ~ .navigation
+    label:nth-of-type(11):after {
+    opacity: 1;
+}
+.csslider > .arrows {
+    position: absolute;
+    left: -31px;
+    top: 50%;
+    width: 100%;
+    height: 26px;
+    padding: 0 31px;
+    z-index: 0;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.csslider > .arrows label {
+    display: none;
+    position: absolute;
+    top: -50%;
+    padding: 13px;
+    box-shadow: inset 2px -2px 0 1px #3a3a3a;
+    cursor: pointer;
+    -moz-transition: box-shadow 0.15s, margin 0.15s;
+    -o-transition: box-shadow 0.15s, margin 0.15s;
+    -webkit-transition: box-shadow 0.15s, margin 0.15s;
+    transition: box-shadow 0.15s, margin 0.15s;
+}
+.csslider > .arrows label:hover {
+    box-shadow: inset 3px -3px 0 2px #ff0000;
+    margin: 0 0px;
+}
+.csslider > .arrows label:before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    height: 300%;
+    width: 300%;
+}
+.csslider.infinity > input:first-of-type:checked ~ .arrows label.goto-last,
+.csslider > input:nth-of-type(1):checked ~ .arrows > label:nth-of-type(0),
+.csslider > input:nth-of-type(2):checked ~ .arrows > label:nth-of-type(1),
+.csslider > input:nth-of-type(3):checked ~ .arrows > label:nth-of-type(2),
+.csslider > input:nth-of-type(4):checked ~ .arrows > label:nth-of-type(3),
+.csslider > input:nth-of-type(5):checked ~ .arrows > label:nth-of-type(4),
+.csslider > input:nth-of-type(6):checked ~ .arrows > label:nth-of-type(5),
+.csslider > input:nth-of-type(7):checked ~ .arrows > label:nth-of-type(6),
+.csslider > input:nth-of-type(8):checked ~ .arrows > label:nth-of-type(7),
+.csslider > input:nth-of-type(9):checked ~ .arrows > label:nth-of-type(8),
+.csslider > input:nth-of-type(10):checked ~ .arrows > label:nth-of-type(9),
+.csslider > input:nth-of-type(11):checked ~ .arrows > label:nth-of-type(10) {
+    display: block;
+    left: 0;
+    right: auto;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.csslider.infinity > input:last-of-type:checked ~ .arrows label.goto-first,
+.csslider > input:nth-of-type(1):checked ~ .arrows > label:nth-of-type(2),
+.csslider > input:nth-of-type(2):checked ~ .arrows > label:nth-of-type(3),
+.csslider > input:nth-of-type(3):checked ~ .arrows > label:nth-of-type(4),
+.csslider > input:nth-of-type(4):checked ~ .arrows > label:nth-of-type(5),
+.csslider > input:nth-of-type(5):checked ~ .arrows > label:nth-of-type(6),
+.csslider > input:nth-of-type(6):checked ~ .arrows > label:nth-of-type(7),
+.csslider > input:nth-of-type(7):checked ~ .arrows > label:nth-of-type(8),
+.csslider > input:nth-of-type(8):checked ~ .arrows > label:nth-of-type(9),
+.csslider > input:nth-of-type(9):checked ~ .arrows > label:nth-of-type(10),
+.csslider > input:nth-of-type(10):checked ~ .arrows > label:nth-of-type(11),
+.csslider > input:nth-of-type(11):checked ~ .arrows > label:nth-of-type(12) {
+    display: block;
+    right: 0;
+    left: auto;
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+/*#region MODULES */
+/*#endregion */
+/*___________________________________ LAYOUT ___________________________________ */
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    padding-left: 40px;
+}
+
+#slider1 {
+    margin: 20px;
+    font-family: "Lato";
+}
+#slider1 > input:nth-of-type(3):checked ~ ul #bg {
+    width: 80%;
+    padding: 22px;
+    -moz-transition: 0.5s 0.5s;
+    -o-transition: 0.5s 0.5s;
+    -webkit-transition: 0.5s 0.5s;
+    transition: 0.5s 0.5s;
+}
+#slider1 > input:nth-of-type(3):checked ~ ul #bg div {
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    -moz-transition: 0.5s 0.9s;
+    -o-transition: 0.5s 0.9s;
+    -webkit-transition: 0.5s 0.9s;
+    transition: 0.5s 0.9s;
+}
+/*#videos */
+/*___________________________________ LAYOUT ___________________________________ */
+video {
+    width: 710px;
+    height: 400px;
+    background: transparent url("") no-repeat 0 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+p {
+    margin-left: 3em;
+}

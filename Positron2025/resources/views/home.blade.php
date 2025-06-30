@@ -197,12 +197,71 @@
 
 <!-- CSS Styles untuk Background Images -->
 <style>
+/* Reset lengkap untuk menghilangkan semua whitespace */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .section {
+    width: 100vw;
+    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Pastikan tidak ada gap antar section */
+    border: none;
+    outline: none;
+}
+
+/* Hilangkan gap antar section */
+.section + .section {
+    margin-top: 0;
+}
+
+/* Pastikan background image selalu full tanpa gap */
+.section::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Slight overlap untuk menghindari gap pixel */
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    z-index: 0;
 }
 
 .section-overlay {
@@ -211,7 +270,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
     z-index: 1;
 }
 
@@ -220,31 +278,121 @@
 .countdown-content,
 .loker-content {
     position: relative;
-    z-index: 2; /* Ensure content appears above overlay */
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Responsive background attachment */
+/* Responsive background attachment untuk mobile */
 @media (max-width: 768px) {
     .section {
-        background-attachment: scroll; /* Better performance on mobile */
+        background-attachment: scroll;
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+        width: 100vw;
+        margin: 0;
+    }
+    
+    .section::before {
+        background-attachment: scroll;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
     }
 }
 
-/* Alternative: Different overlay colors for each section */
+@media (max-width: 480px) {
+    .section {
+        width: 100vw;
+        margin: 0;
+        padding: 15px 0;
+    }
+    
+    .home-content,
+    .video-content,
+    .countdown-content,
+    .loker-content {
+        padding: 15px;
+        margin: 0;
+    }
+}
+
+/* Overlay colors untuk setiap section */
 .home-section .section-overlay {
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.7), rgba(40, 167, 69, 0.7));
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.6), rgba(40, 167, 69, 0.6));
 }
 
 .video-section .section-overlay {
-    background: linear-gradient(135deg, rgba(108, 117, 125, 0.8), rgba(52, 58, 64, 0.8));
+    background: linear-gradient(135deg, rgba(108, 117, 125, 0.7), rgba(52, 58, 64, 0.7));
 }
 
 .countdown-section .section-overlay {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.7), rgba(253, 126, 20, 0.7));
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.6), rgba(253, 126, 20, 0.6));
 }
 
 .loker-section .section-overlay {
-    background: linear-gradient(135deg, rgba(220, 53, 69, 0.7), rgba(111, 66, 193, 0.7));
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.6), rgba(111, 66, 193, 0.6));
+}
+
+/* Animasi fade in untuk section yang terlihat */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styling untuk konten agar lebih terlihat */
+.home-content,
+.video-content,
+.countdown-content,
+.loker-content {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Fallback jika gambar background tidak load */
+.home-section {
+    background-color: #007bff;
+}
+
+.video-section {
+    background-color: #6c757d;
+}
+
+.countdown-section {
+    background-color: #ffc107;
+}
+
+.loker-section {
+    background-color: #dc3545;
+}
+
+/* Force full width tanpa margin */
+@media screen {
+    .section {
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100vw !important;
+    }
+}
+
+/* Hilangkan semua kemungkinan whitespace */
+.main-container::before,
+.main-container::after,
+.section::after {
+    display: none;
 }
 </style>
 
@@ -272,12 +420,11 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 60000);
 
-// Smooth scroll behavior
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add smooth scrolling for any navigation links if needed
     const sections = document.querySelectorAll('.section');
     
-    // Intersection Observer for section animations
+    // Intersection Observer untuk animasi section
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -285,7 +432,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
     
     sections.forEach(section => {
@@ -293,20 +441,69 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Video placeholder click handler
-    document.querySelector('.video-placeholder').addEventListener('click', function() {
-        // Replace with actual video embed or modal
-        alert('Video akan diputar di sini');
-    });
+    const videoPlaceholder = document.querySelector('.video-placeholder');
+    if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+            // Replace with actual video embed or modal
+            alert('Video akan diputar di sini');
+        });
+    }
 
-    // Parallax effect for background images (optional)
-    window.addEventListener('scroll', function() {
+    // Parallax effect yang diperbaiki (opsional - bisa diaktifkan jika diinginkan)
+    /*
+    let ticking = false;
+    
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         const sections = document.querySelectorAll('.section');
         
-        sections.forEach(section => {
-            const rate = scrolled * -0.5;
-            section.style.transform = `translateY(${rate}px)`;
+        sections.forEach((section, index) => {
+            const rate = scrolled * -0.3;
+            const backgroundElement = section.querySelector('::before') || section;
+            if (backgroundElement.style) {
+                backgroundElement.style.transform = `translate3d(0, ${rate}px, 0)`;
+            }
         });
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    */
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    // Re-trigger any size-dependent calculations if needed
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        // Force background recalculation
+        const currentBg = section.style.backgroundImage;
+        section.style.backgroundImage = '';
+        section.offsetHeight; // Force reflow
+        section.style.backgroundImage = currentBg;
+    });
+});
+
+// Preload background images untuk performa yang lebih baik
+document.addEventListener('DOMContentLoaded', function() {
+    const backgroundImages = [
+        "{{ asset('images/backgrounds/home-bg.jpg') }}",
+        "{{ asset('images/backgrounds/video-bg.jpg') }}",
+        "{{ asset('images/backgrounds/countdown-bg.jpg') }}",
+        "{{ asset('images/backgrounds/loker-bg.jpg') }}"
+    ];
+    
+    backgroundImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
 });
 </script>

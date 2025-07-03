@@ -4,31 +4,9 @@
 
 @section('content')
 <div class="main-container">
-    <!-- Section 1: Tampilan Home -->
+    Section 1: Tampilan Home
     <section id="home" class="section home-section" style="background-image: url('{{ asset('images/backgrounds/home-bg.jpg') }}');">
         <div class="home-content">  
-            <!-- Main Logo Section dengan gambar -->
-            <div class="main-logo">
-                <!-- Logo POSITRON di sebelah kiri -->
-                <div class="positron-logo-container">
-                    <h1 class="positron-title">POSITRON</h1>
-                    <h2 class="year-title">2025</h2>
-                </div>
-                
-                <!-- Logo gambar di sebelah kanan -->
-                <div class="brand-logo-container">
-                    <img src="{{ asset('images/positron-logo.png') }}" alt="POSITRON Logo" class="positron-brand-logo">
-                    <!-- Alternatif jika menggunakan path relatif: -->
-                    <!-- <img src="/images/positron-logo.png" alt="POSITRON Logo" class="positron-brand-logo"> -->
-                </div>
-            </div>
-            
-            <div class="logo-symbol">
-                <i class="fas fa-atom"></i>
-            </div>
-            <div class="unity-text">
-                <span>ELECTRICAL UNITY</span>
-            </div>
         </div>
     </section>
 

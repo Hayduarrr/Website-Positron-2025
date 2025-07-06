@@ -27,7 +27,7 @@
     </section>
 
     <!-- Section 2: Tampilan Video -->
-    <section id="video" class="section video-section" style="background-image: url('{{ asset('images/backgrounds/video-bg.jpg') }}');">
+    <section id="video" class="section" style="background-image: url('{{ asset('images/backgrounds/section-bg.jpg') }}');">
         <div class="section-overlay"></div>
         <!-- <div class="section-header">
             <span class="section-label">Tampilan video</span>
@@ -65,7 +65,7 @@
     </section>
 
     <!-- Section 3: Countdown Timer -->
-    <section id="countdown" class="section countdown-section" style="background-image: url('{{ asset('images/backgrounds/countdown-bg.jpg') }}');">
+    <section id="countdown" class="section " style="background-image: url('{{ asset('images/backgrounds/section-bg.jpg') }}');">
         <div class="section-overlay"></div>
         <!-- <div class="section-header">
             <span class="section-label">countdown timer</span>
@@ -111,7 +111,7 @@
     </section>
 
     <!-- Section 4: Tampilan Loker -->
-    <section id="loker" class="section loker-section" style="background-image: url('{{ asset('images/backgrounds/loker-bg.jpg') }}');">
+    <section id="loker" class="section" style="background-image: url('{{ asset('images/backgrounds/section-bg.jpg') }}');">
         <div class="section-overlay"></div>
         <!-- <div class="section-header">
             <span class="section-label">page 4 : tampilan loker</span>
@@ -187,6 +187,46 @@
             </div>
         </div>
     </section>
+
+    <!-- Section 1: Filosofi Warna dan Logo -->
+    <section id="filosofi-warna" class="section" style="background-image: url('{{ asset('images/backgrounds/section-bg.jpg') }}');">
+        <div class="section-overlay"></div>
+
+        <div class="filosofi-warna-content">
+            <div class="logo-deskripsi-container">
+                <div class="logo-box">
+                    <img src="{{ asset('images/logo/positron-logo.png') }}" alt="Logo Positron" class="positron-logo">
+                </div>
+                <div class="deskripsi-logo">
+                    <p>
+                        Logo kami mewakili semangat kebersamaan dan petualangan. Setiap elemen di dalam logo memiliki makna tersendiri yang mencerminkan nilai-nilai utama yang kami pegang.
+                    </p>
+                    <div class="kode-b12">B12</div>
+                </div>
+            </div>
+
+            <div class="filosofi-warna-box">
+                <h2 class="filosofi-title">FILOSOFI WARNA</h2>
+
+                <div class="warna-item">
+                    <div class="warna-swatch" style="background-color: #0000FF;"></div>
+                    <div class="warna-keterangan">
+                        <code>#0000FF</code><br>
+                        Mencerminkan identitas Departemen Teknik Elektro dan Informatika
+                    </div>
+                </div>
+
+                <div class="warna-item">
+                    <div class="warna-swatch" style="background-color: #D4AF37;"></div>
+                    <div class="warna-keterangan">
+                        <code>#D4AF37</code><br>
+                        Mencerminkan pencapaian yang tinggi dan berwibawa
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <!-- CSS Styles untuk Background Images -->
@@ -233,6 +273,13 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        scroll-snap-align: start;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-in-out;
         /* Pastikan tidak ada gap antar section */
         border: none;
         outline: none;

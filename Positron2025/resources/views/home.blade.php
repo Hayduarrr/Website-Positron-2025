@@ -104,7 +104,7 @@
                 <div class="university-logo orange">
                     <!-- Logo STIKOM -->
                     <!-- <img src="{{ asset('images/stikom-logo.png') }}" alt="STIKOM Logo" class="university-logo-img"> -->
-                    <span>STIKOM</span>
+                    <span>HALO</span>
                 </div>
             </div>
         </div>
